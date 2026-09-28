@@ -4,17 +4,33 @@ public class FizzBuzzGame
 {
     public string Play(int top)
     {
-        if(top == 1)
+        List<string> nums = [];
+
+        for(int i = 0; i < top; i++)
         {
-            return "1";
+            var item = string.Empty;
+
+            item = $"{i+1}";
+            var threeDivision = ((i+1) % 3) == 0;
+            var fiveDivision = ((i+1) % 5) == 0;
+
+
+            if(threeDivision && fiveDivision)
+            {
+                item = "FizzBuzz";
+            }
+            else if(threeDivision)
+            {
+                item = "Fizz";
+            }
+            else if(fiveDivision)
+            {
+                item = "Buzz";
+            }
+
+            nums.Add(item);
         }
-        else if(top == 2)
-        {
-            return "1,2";
-        }
-        else
-        {
-            return "1";
-        }
+
+        return string.Join(',', nums);
     }
 }
